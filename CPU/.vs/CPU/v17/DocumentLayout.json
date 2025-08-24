@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\nobem\\Documents\\Github\\CPU\\CPU\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AED52D2F-B3BB-4C99-B0DE-7AF6ABB18013}|CPU.csproj|c:\\users\\nobem\\documents\\github\\cpu\\cpu\\cpu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AED52D2F-B3BB-4C99-B0DE-7AF6ABB18013}|CPU.csproj|solutionrelative:cpu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AED52D2F-B3BB-4C99-B0DE-7AF6ABB18013}|CPU.csproj|c:\\users\\nobem\\documents\\github\\cpu\\cpu\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AED52D2F-B3BB-4C99-B0DE-7AF6ABB18013}|CPU.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Cpu.cs",
+              "DocumentMoniker": "C:\\Users\\nobem\\Documents\\Github\\CPU\\CPU\\Cpu.cs",
+              "RelativeDocumentMoniker": "Cpu.cs",
+              "ToolTip": "C:\\Users\\nobem\\Documents\\Github\\CPU\\CPU\\Cpu.cs",
+              "RelativeToolTip": "Cpu.cs",
+              "ViewState": "AgIAAHkAAAAAAAAAAAAiwHkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-24T15:59:52.025Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\nobem\\Documents\\Github\\CPU\\CPU\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\nobem\\Documents\\Github\\CPU\\CPU\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-08T21:48:32.765Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
