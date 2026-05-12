@@ -26,7 +26,9 @@ namespace VirtualCPU
     public class RegisterManager
     {
         private Dictionary<Register, byte> _registerValues;
-        private Flags _flagsRegister; 
+        private Flags _flagsRegister;
+
+        private VCPU _vCpu;
         private Action<string> _crashHandle;
 
         public Flags FlagsRegister { get => _flagsRegister; }
@@ -34,12 +36,17 @@ namespace VirtualCPU
         #region Methods
 
         #region Public Methods  
-        public RegisterManager(Action<string> crashHandle = null)
+        public RegisterManager(VCPU vCpu, Action<string> crashHandle = null)
         {
+            _vCpu = vCpu;
             _crashHandle = crashHandle;
             InitializeRegisters();
         }
 
+        public void SetFlagsRegister(Flags flags)
+        {
+            _flagsRegister = flags;
+        }
         /// <summary>
         /// Gets the value of a register, and outputs it in the value parameter, 
         /// if the register does not exist it will crash the program
@@ -77,6 +84,22 @@ namespace VirtualCPU
             Register register1 = (Register)register;
             SetRegisterValue(register1, value);
         }
+
+        /// <summary>
+        /// Updates the flags register based on the result of an addition or subtraction operation between two byte values.
+        /// </summary>
+        /// <param name="lhs">The left-hand side operand.</param>
+        /// <param name="rhs">The right-hand side operand.</param>
+        /// <param name="isSubtraction">Whether the operation is subtraction (or comparison).</param>
+        public void UpdateFlags(byte lhs, byte rhs, bool isSubtraction = false)
+        {
+            UpdateCarryFlag(lhs, rhs, _vCpu, isSubtraction);
+            UpdateOverflowFlag(lhs, rhs, _vCpu, isSubtraction);
+            UpdateZeroFlag(lhs, rhs, _vCpu, isSubtraction);
+            UpdateSignedFlag(lhs, rhs, _vCpu, isSubtraction); // Include the signed flag
+        }
+
+
         #endregion
 
         #region Private Methods
@@ -108,6 +131,50 @@ namespace VirtualCPU
         private byte GetRegisterValue(Register register)
         {
             return _registerValues[register];
+        }
+
+        private void UpdateCarryFlag(byte lhs, byte rhs, VCPU vCpu, bool isSubtraction = false)
+        {
+            bool carry = isSubtraction ? lhs < rhs : lhs + rhs > byte.MaxValue;
+            if (carry)
+                vCpu.Registers.SetFlagsRegister((Flags)(vCpu.Registers.FlagsRegister | Flags.Carry));
+            else
+                vCpu.Registers.SetFlagsRegister((Flags)(vCpu.Registers.FlagsRegister & ~Flags.Carry));
+        }
+
+        private void UpdateZeroFlag(byte lhs, byte rhs, VCPU vCpu, bool isSubtraction = false)
+        {
+            int result = isSubtraction ? lhs - rhs : lhs + rhs;
+            if ((byte)result == 0)
+                vCpu.Registers.SetFlagsRegister((Flags)(vCpu.Registers.FlagsRegister | Flags.Zero));
+            else
+                vCpu.Registers.SetFlagsRegister((Flags)(vCpu.Registers.FlagsRegister & ~Flags.Zero));
+        }
+
+        private void UpdateOverflowFlag(byte lhs, byte rhs, VCPU vCpu, bool isSubtraction = false)
+        {
+            int result = isSubtraction ? lhs - rhs : lhs + rhs;
+            // For addition: Overflow occurs if the sign of the result is different from the signs of both operands when they are the same.
+            // For subtraction: Overflow occurs if signs of operands are different and sign of result matches sign of subtrahend.
+            bool overflow = isSubtraction 
+                ? ((lhs ^ rhs) & 0x80) != 0 && ((lhs ^ result) & 0x80) != 0
+                : ((lhs ^ rhs) & 0x80) == 0 && ((lhs ^ result) & 0x80) != 0;
+
+            if (overflow)
+                vCpu.Registers.SetFlagsRegister((Flags)(vCpu.Registers.FlagsRegister | Flags.Overflow));
+            else
+                vCpu.Registers.SetFlagsRegister((Flags)(vCpu.Registers.FlagsRegister & ~Flags.Overflow));
+        }
+
+        private void UpdateSignedFlag(byte lhs, byte rhs, VCPU vCpu, bool isSubtraction = false)
+        {
+            int result = isSubtraction ? lhs - rhs : lhs + rhs;
+            
+            // If the highest bit (0x80) is 1, the number is negative in two's complement
+            if (((byte)result & 0x80) != 0)
+                vCpu.Registers.SetFlagsRegister((Flags)(vCpu.Registers.FlagsRegister | Flags.Signed));
+            else
+                vCpu.Registers.SetFlagsRegister((Flags)(vCpu.Registers.FlagsRegister & ~Flags.Signed));
         }
         #endregion
 

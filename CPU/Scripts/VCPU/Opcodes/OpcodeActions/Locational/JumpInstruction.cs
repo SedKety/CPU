@@ -23,7 +23,7 @@ namespace VirtualCPU.Opcodes
 
             var destination = vCpu.Program[localPC]; ///Get the location to jump to represented in offset from 0
 
-            vCpu.Log($"Jumping to: {destination}");
+            vCpu.Log($"Jumping from {localPC} to: {destination}");
 
             vCpu.SetProgramCounter(destination);
         }

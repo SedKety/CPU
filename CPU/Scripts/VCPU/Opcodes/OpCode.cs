@@ -38,27 +38,27 @@ namespace VirtualCPU
         /// <summary>
         /// Adds the values of two registers and stores the result in the first register.
         /// </summary>
-        ADD = 0x20,
+        ADD = 0x14,
 
         /// <summary>
         /// Compares the values of two registers and sets the appropriate flags based on the result 
         /// (e.g., zero flag, signed flag, overflow flag).
         /// </summary>
-        CMP = 0x21,
+        CMP = 0x15,
 
         /// <summary>
         /// Subtracts the value of the second register from the first register and stores the result in the first register.
         /// </summary>
-        SUB = 0x22,
+        SUB = 0x16,
 
         /// <summary>
         /// Increments the value of a specified register by 1.
         /// </summary>
-        INC = 0x23,
+        INC = 0x17,
 
         /// <summary>
         /// Decrements the value of a specified register by 1.
         /// </summary>
-        DEC = 0x24
+        DEC = 0x18
     }
 }

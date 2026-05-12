@@ -7,30 +7,29 @@ using System.Threading.Tasks;
 namespace VirtualCPU.Opcodes
 {
     /// <summary>
-    /// Instruction to add the values of two registers and store the result in the destination register.
+    /// Instruction to subtract the values of two registers and store the result in the destination register.
     /// </summary>
-    public class AddInstruction : OpcodeInstruction
+    public class SubtractInstruction : OpcodeInstruction
     {
-        public string Name => "ADD";
+        public string Name => "SUB";
 
         public bool Accept(byte opcode)
         {
-            return opcode == (byte)OpCode.ADD;
+            return opcode == (byte)OpCode.SUB;
         }
 
         public void Act(VCPU vCpu, byte opcode, Action<string> crashHandle)
         {
             var lhs = vCpu.Registers.GetRegisterValue(vCpu.Program[vCpu.ProgramCounter + 1]);
             var rhs = vCpu.Registers.GetRegisterValue(vCpu.Program[vCpu.ProgramCounter + 2]);
+            vCpu.Log($"Subtracting {rhs} from {lhs} from registers {vCpu.Program[vCpu.ProgramCounter + 1]} and {vCpu.Program[vCpu.ProgramCounter + 2]}");
+            vCpu.Registers.UpdateFlags(lhs, rhs, isSubtraction: true);
 
-            vCpu.Log($"Adding {lhs} and {rhs} from registers {vCpu.Program[vCpu.ProgramCounter + 1]} and {vCpu.Program[vCpu.ProgramCounter + 2]}");
-
-            vCpu.Registers.UpdateFlags(lhs, rhs);
-
-            var result = (byte)(lhs + rhs);
+            var result = (byte)(lhs - rhs);
             vCpu.Registers.SetRegisterValue(vCpu.Program[vCpu.ProgramCounter + 1], result);
 
-            vCpu.Log($"Result of addition: {result} stored in register {vCpu.Program[vCpu.ProgramCounter + 1]}");
+            vCpu.Log($"Result of subtraction: {result} stored in register {vCpu.Program[vCpu.ProgramCounter + 1]}");
+
             vCpu.SetProgramCounter((byte)(vCpu.ProgramCounter + 3));
         }
     }

@@ -74,7 +74,7 @@ namespace VirtualCPU
         private void Initialize(uint memorySize, uint stackSize)
         {
             _memory = new Memory(new byte[memorySize], stackSize, this, _crashHandle);
-            _registers = new RegisterManager(_crashHandle);
+            _registers = new RegisterManager(this, _crashHandle);
         }
 
         /// <summary>
@@ -127,17 +127,19 @@ namespace VirtualCPU
             Log("Dumping registers:", ConsoleColor.White);
             for (byte i = 0; i < Enum.GetValues(typeof(Register)).Length; i++)
             {
-                Log($"Register {Enum.GetName(typeof(Register), i)} holds = {_registers.GetRegisterValue(i)}", ConsoleColor.DarkYellow);
+                var value = _registers.GetRegisterValue(i);
+                Log($"Register {Enum.GetName(typeof(Register), i)} holds = {value}", value == 0 ? ConsoleColor.DarkYellow : ConsoleColor.Yellow);
             }
         }
          
         private void DumpFlags()
         {
             Log("Dumping flags:", ConsoleColor.White);
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < Enum.GetValues(typeof(Flags)).Length; i++)
             {
-                //Converts the flags register to a string of 0's and 1's, and checks if the bit at the current index is set or not, then logs the result to the console.
-                Log($"Flag {(Flags)(1 << i)} is {( (_registers.FlagsRegister & (Flags)(1 << i)) != 0 ? "set" : "not set")}", ConsoleColor.DarkYellow);
+                var flag = (Flags)(1 << i);
+                var hasFlag = Registers.FlagsRegister.HasFlag(flag);
+                Log($"Flag {flag} is {(hasFlag ? "set" : "not set")}", hasFlag ? ConsoleColor.Yellow : ConsoleColor.DarkYellow);
             }
         }
 
@@ -146,7 +148,8 @@ namespace VirtualCPU
             Log("Dumping memory:", ConsoleColor.White);
             for (uint i = 0; i < _memory.HeapMemorySize; i++)
             {
-                Log($"Memory address {i} holds = {_memory.GetFromMemory(i)}", ConsoleColor.DarkYellow);
+                var value = _memory.GetFromMemory(i);
+                Log($"Memory address {i} holds = {value}", value == 0 ? ConsoleColor.DarkYellow : ConsoleColor.Yellow);
             }
         }
         #endregion
