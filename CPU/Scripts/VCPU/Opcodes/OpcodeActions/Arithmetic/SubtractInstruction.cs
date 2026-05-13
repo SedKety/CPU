@@ -8,6 +8,8 @@ namespace VirtualCPU.Opcodes
 {
     /// <summary>
     /// Instruction to subtract the values of two registers and store the result in the destination register.
+    /// The instruction format is as follows:
+    /// SUB DestinationRegister SourceRegister1
     /// </summary>
     public class SubtractInstruction : OpcodeInstruction
     {
@@ -15,7 +17,7 @@ namespace VirtualCPU.Opcodes
 
         public bool Accept(byte opcode)
         {
-            return opcode == (byte)OpCode.SUB;
+            return opcode == (byte)OpCodes.SUB;
         }
 
         public void Act(VCPU vCpu, byte opcode, Action<string> crashHandle)

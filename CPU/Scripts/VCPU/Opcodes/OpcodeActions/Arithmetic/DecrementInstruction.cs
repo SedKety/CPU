@@ -7,22 +7,22 @@ using System.Threading.Tasks;
 namespace VirtualCPU.Opcodes
 {
     /// <summary>
-    /// Represents an instruction that increments the value of a specified register in a virtual CPU.
+    /// Represents an instruction that decrements the value of a specified register in a virtual CPU.
     /// The instruction format is as follows:
-    /// INC Register
+    /// DEC Register
     /// </summary>
-    public class IncrementInstruction : OpcodeInstruction
+    public class DecrementInstruction : OpcodeInstruction
     {
-        public string Name => "INC";
-        public bool Accept(byte opcode) => opcode == (byte)OpCodes.INC;
+        public string Name => "DEC";
+        public bool Accept(byte opcode) => opcode == (byte)OpCodes.DEC;
 
         public void Act(VCPU vCpu, byte opcode, Action<string> crashHandle)
         {
             var pc = vCpu.ProgramCounter;
             var registers = vCpu.Registers;
-            vCpu.Log($"Incrementing R{vCpu.Program[pc + 1]} CurValue = {registers.GetRegisterValue(vCpu.Program[pc + 1])}");
+            vCpu.Log($"Decrementing R{vCpu.Program[pc + 1]} CurValue = {registers.GetRegisterValue(vCpu.Program[pc + 1])}");
 
-            registers.SetRegisterValue(vCpu.Program[pc + 1], (byte)(registers.GetRegisterValue(vCpu.Program[pc + 1]) + 1)); 
+            registers.SetRegisterValue(vCpu.Program[pc + 1], (byte)(registers.GetRegisterValue(vCpu.Program[pc + 1]) - 1));
 
             vCpu.Log($"NewValue = {registers.GetRegisterValue(vCpu.Program[pc + 1])}");
             vCpu.SetProgramCounter((byte)(pc + 2));

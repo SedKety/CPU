@@ -16,6 +16,9 @@ namespace VirtualCPU
         public ref Memory Memory => ref _memory;
         private Memory _memory;
 
+        /// <summary>
+        /// Provides methods to get and set the values of the registers, and to set and get the flags register,
+        /// </summary>
         public ref RegisterManager Registers => ref _registers;
         private RegisterManager _registers;
 
@@ -36,6 +39,7 @@ namespace VirtualCPU
         /// The program counter, this is used to keep track of the current instruction being executed in the program,
         /// </summary>
         private int _pc = 0;
+
         /// <summary>
         /// The index of the current instruction being executed in the program, 
         /// this is used to fetch instructions and data from the program, and is incremented after each instruction is executed.
@@ -83,7 +87,7 @@ namespace VirtualCPU
         /// <param name="programArray">The program in bytes to be executed</param>
         private void Run(byte[] programArray, OpcodeInstruction[] actions)
         {
-            Console.WriteLine("Executing the program");
+            Log("Executing the program", ConsoleColor.White);
 
             _program = programArray;
             this._opcodeActions = actions;
@@ -174,12 +178,28 @@ namespace VirtualCPU
             _forceQuit = true;
         }
 
-        #region Logging
+        #region Printing/Logging
+
+        /// <summary>
+        /// Prints a message to the console without a new line at the end.
+        /// </summary>
+        /// <param name="message">The message to print.</param>
+        /// <remarks>This works regardless if _loggingEnabled is enabled or not.</remarks>
+        public void Print(string message) => Console.Write(message);
+
+        /// <summary>
+        /// Prints a character to the console without a new line at the end.
+        /// </summary>
+        /// <param name="message">The character to print.</param>
+        /// <remarks>This works regardless if _loggingEnabled is enabled or not.</remarks>
+        public void Print (char message) => Console.Write(message);
+
 
         /// <summary>
         /// Logs an error message to the console in red color, and resets the color back to white after logging.
         /// </summary>
         /// <param name="errorMessage">The error message to log.</param>
+        /// <remarks>This does NOT work if _loggingEnabled is false.</remarks>
         public void LogError(string errorMessage)
         {
             Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -192,6 +212,7 @@ namespace VirtualCPU
         /// </summary>
         /// <param name="message">The message to display in the console.</param>
         /// <param name="color">The color to use for the console output. Defaults to green.</param>
+        /// <remarks>This does NOT work if _loggingEnabled is false.</remarks>
         public void Log(string message, ConsoleColor color = ConsoleColor.Green)
         {
             if (_loggingEnabled) 

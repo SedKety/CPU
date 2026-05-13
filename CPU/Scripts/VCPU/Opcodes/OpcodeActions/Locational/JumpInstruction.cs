@@ -8,12 +8,14 @@ namespace VirtualCPU.Opcodes
 {
     /// <summary>
     /// The jump instruction, this allows you to jump to a different adress.
+    /// The instruction format is as follows:
+    /// JMP DestinationAdress
     /// </summary>
     public class JumpInstruction : OpcodeInstruction
     {
         public string Name => "JMP";
 
-        public bool Accept(byte opcode) => opcode == (byte)OpCode.JMP;
+        public bool Accept(byte opcode) => opcode == (byte)OpCodes.JMP;
 
         public void Act(VCPU vCpu, byte opcode, Action<string> crashHandle)
         {

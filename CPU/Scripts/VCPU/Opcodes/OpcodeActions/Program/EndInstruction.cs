@@ -12,7 +12,7 @@ namespace VirtualCPU.Opcodes
     public class EndInstruction : OpcodeInstruction
     {
         public string Name => "END";
-        public bool Accept(byte opcode) => opcode == (byte)OpCode.END;
+        public bool Accept(byte opcode) => opcode == (byte)OpCodes.END;
 
         public void Act(VCPU vCpu, byte opcode, Action<string> crashHandle)
         {

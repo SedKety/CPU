@@ -47,6 +47,7 @@ namespace VirtualCPU
         {
             _flagsRegister = flags;
         }
+
         /// <summary>
         /// Gets the value of a register, and outputs it in the value parameter, 
         /// if the register does not exist it will crash the program
@@ -96,7 +97,7 @@ namespace VirtualCPU
             UpdateCarryFlag(lhs, rhs, _vCpu, isSubtraction);
             UpdateOverflowFlag(lhs, rhs, _vCpu, isSubtraction);
             UpdateZeroFlag(lhs, rhs, _vCpu, isSubtraction);
-            UpdateSignedFlag(lhs, rhs, _vCpu, isSubtraction); // Include the signed flag
+            UpdateSignedFlag(lhs, rhs, _vCpu, isSubtraction); 
         }
 
 
@@ -133,8 +134,10 @@ namespace VirtualCPU
             return _registerValues[register];
         }
 
+        #region Flags
         private void UpdateCarryFlag(byte lhs, byte rhs, VCPU vCpu, bool isSubtraction = false)
         {
+            // For subtraction/CMP, Carry Flag acts as a Borrow Flag. It is set if lhs < rhs.
             bool carry = isSubtraction ? lhs < rhs : lhs + rhs > byte.MaxValue;
             if (carry)
                 vCpu.Registers.SetFlagsRegister((Flags)(vCpu.Registers.FlagsRegister | Flags.Carry));
@@ -176,6 +179,8 @@ namespace VirtualCPU
             else
                 vCpu.Registers.SetFlagsRegister((Flags)(vCpu.Registers.FlagsRegister & ~Flags.Signed));
         }
+        #endregion
+
         #endregion
 
         #endregion

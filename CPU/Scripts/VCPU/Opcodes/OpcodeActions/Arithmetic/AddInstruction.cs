@@ -8,6 +8,7 @@ namespace VirtualCPU.Opcodes
 {
     /// <summary>
     /// Instruction to add the values of two registers and store the result in the destination register.
+    /// Written in the format: ADD DestinationRegister, SourceRegister1
     /// </summary>
     public class AddInstruction : OpcodeInstruction
     {
@@ -15,7 +16,7 @@ namespace VirtualCPU.Opcodes
 
         public bool Accept(byte opcode)
         {
-            return opcode == (byte)OpCode.ADD;
+            return opcode == (byte)OpCodes.ADD;
         }
 
         public void Act(VCPU vCpu, byte opcode, Action<string> crashHandle)

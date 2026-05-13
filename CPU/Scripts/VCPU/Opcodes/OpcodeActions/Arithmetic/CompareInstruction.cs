@@ -8,6 +8,8 @@ namespace VirtualCPU.Opcodes
 {
     /// <summary>
     /// Instruction to compare the values of two registers and update the flags register accordingly.
+    /// The instruction format is as follows:
+    /// CMP Register1 Register2
     /// </summary>
     public class CompareInstruction : OpcodeInstruction
     {
@@ -15,7 +17,7 @@ namespace VirtualCPU.Opcodes
 
         public bool Accept(byte opcode)
         {
-            return opcode == (byte)OpCode.CMP;
+            return opcode == (byte)OpCodes.CMP;
         }
 
         public void Act(VCPU vCpu, byte opcode, Action<string> crashHandle)

@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace VirtualCPU.Opcodes;
 
+/// <summary>
+/// Move instruction, moves a value from a source to a destination, 
+/// the source and destination can be either a register or a memory address, but not both memory addresses.
+/// Written as: MOV source isSourceRegister destination isDestinationRegister
+/// </summary>
 public class MoveInstruction : OpcodeInstruction
 {
     public string Name => "MOV";
-    public bool Accept(byte opcode) => opcode == (byte)OpCode.MOV;
+    public bool Accept(byte opcode) => opcode == (byte)OpCodes.MOV;
     public void Act(VCPU vCpu, byte opcode, Action<string> crashHandle)
     {
         var registers = vCpu.Registers;
