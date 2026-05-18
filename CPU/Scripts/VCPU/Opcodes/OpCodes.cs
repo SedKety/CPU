@@ -17,21 +17,28 @@ namespace VirtualCPU
         /// <summary>
         /// No operation, does nothing and moves to the next instruction. This can be used for padding or to create intentional delays in the execution flow.
         /// </summary>
-        NOP = 0x01, // No operation, does nothing and moves to the next instruction
+        NOP = 0x01, 
 
         /// <summary>
         /// Prints the value of a register or a block of memory to the console.
         /// The instruction format is as follows:
         /// PRT SourceType(Register = 0, Memory = 1, Immediate value = 2) Source
         /// </summary>
-        PRT = 0x02, // Print the value of a register / a block of memory to the console
+        PRT = 0x02, 
+
+        /// <summary>
+        /// Inputs a value from the user and stores it in a specified register.
+        /// The instruction format is as follows:
+        /// IPT RegisterIndex
+        /// </summary>
+        IPT = 0x03,
 
         //<-----------Locational opcodes------------>
 
         /// <summary>
         /// Loads a value into a specified register.
         /// The instruction format is as follows:
-        /// LOAD Value Register
+        /// LOAD Value RegisterIndex
         /// </summary>
         LOAD = 0x05,
 
@@ -59,7 +66,7 @@ namespace VirtualCPU
         /// <summary>
         /// Adds the values of two registers and stores the result in the first register.
         /// The instruction format is as follows:
-        /// ADD Register1 Register2
+        /// ADD RegisterIndex1 RegisterIndex2
         /// </summary>
         ADD = 0x14,
 
@@ -67,28 +74,28 @@ namespace VirtualCPU
         /// Compares the values of two registers and sets the appropriate flags based on the result 
         /// (e.g., zero flag, signed flag, overflow flag).
         /// The instruction format is as follows:
-        /// CMP Register1 Register2
+        /// CMP RegisterIndex1 RegisterIndex2
         /// </summary>
         CMP = 0x15,
 
         /// <summary>
         /// Subtracts the value of the second register from the first register and stores the result in the first register.
         /// The instruction format is as follows:
-        /// SUB Register1 Register2         
+        /// SUB RegisterIndex1 RegisterIndex2         
         /// </summary>
         SUB = 0x16,
 
         /// <summary>
         /// Increments the value of a specified register by 1.
         /// The instruction format is as follows:
-        /// INC Register
+        /// INC RegisterIndex
         /// </summary>
         INC = 0x17,
 
         /// <summary>
         /// Decrements the value of a specified register by 1.
         /// The instruction format is as follows:
-        /// DEC Register
+        /// DEC RegisterIndex
         /// </summary>
         DEC = 0x18
 

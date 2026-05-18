@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CPU")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+764f1c86155a660db6703579bbaca548898d8f7d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1176dfae06eb32fd2b4b7a9577b410745abbf7c7")]
 [assembly: System.Reflection.AssemblyProductAttribute("CPU")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CPU")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

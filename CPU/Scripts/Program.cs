@@ -7,7 +7,7 @@ namespace VirtualCPU
         //Entry point
         static void Main(string[] args)
         {
-            var program = Programs.PrintStringSample;
+            var program = Programs.SumInputSample;
 
             OpcodeInstruction[] instructions = Assembly.GetAssembly(typeof(Program)).GetTypes()
                 .Where(t => typeof(OpcodeInstruction).IsAssignableFrom(t) && !t.IsInterface && !t.IsAbstract)

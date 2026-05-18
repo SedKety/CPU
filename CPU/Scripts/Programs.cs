@@ -55,10 +55,22 @@ namespace VirtualCPU
         //This will print "Hello, World!" to the console.
         public static byte[] PrintStringSample = new byte[]
         {
-            (byte)OpCodes.LOAD, 0, (byte)Register.R0, 
+            (byte)OpCodes.LOAD, 0, (byte)Register.R0,
             (byte)OpCodes.PRT, 2,
-            (byte)'H', (byte)'e', (byte)'l', (byte)'l', (byte)'o', (byte)',', (byte)' ', 
+            (byte)'H', (byte)'e', (byte)'l', (byte)'l', (byte)'o', (byte)',', (byte)' ',
             (byte)'W', (byte)'o', (byte)'r', (byte)'l', (byte)'d', (byte)'!', 0
         };
+
+
+        public static byte[] SumInputSample = new byte[]
+        {
+            (byte)OpCodes.PRT, 0, (byte)Register.R0, // Print the value of R0 (initially 0)
+            (byte)OpCodes.PRT, 0, (byte)Register.R1, // Print the value of R1 (initially 0)
+            (byte)OpCodes.IPT, 1, (byte)Register.R0, // Input a value into R0
+            (byte)OpCodes.IPT, 0, (byte)Register.R1, // Input a value into R1
+            (byte)OpCodes.SUB, (byte)Register.R0, (byte)Register.R1, // Subtract R1 from R0, store in R0
+            (byte)OpCodes.PRT, 0, (byte)Register.R0, // Print the result in R0
+            (byte)OpCodes.END // End of program
+            };
     }
 }
