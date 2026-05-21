@@ -124,7 +124,7 @@ namespace VirtualCPU
         /// <remarks> ! Can SegFault !</remarks>
         public void WriteToMemory(uint adress, byte value)
         {
-            if (adress > _heapMemory.Length)
+            if (adress >= _heapMemory.Length)
             {
                 _crashHandle(SegmentationFaultMessage(adress));
                 return;

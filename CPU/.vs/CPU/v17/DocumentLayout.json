@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\nobem\\OneDrive\\Documents\\Programming stuff\\C#\\CPU\\CPU\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AED52D2F-B3BB-4C99-B0DE-7AF6ABB18013}|CPU.csproj|c:\\users\\nobem\\onedrive\\documents\\programming stuff\\c#\\cpu\\cpu\\scripts\\programs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AED52D2F-B3BB-4C99-B0DE-7AF6ABB18013}|CPU.csproj|solutionrelative:scripts\\programs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AED52D2F-B3BB-4C99-B0DE-7AF6ABB18013}|CPU.csproj|c:\\users\\nobem\\onedrive\\documents\\programming stuff\\c#\\cpu\\cpu\\scripts\\vcpu\\opcodes\\opcodeactions\\program\\endinstruction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AED52D2F-B3BB-4C99-B0DE-7AF6ABB18013}|CPU.csproj|solutionrelative:scripts\\vcpu\\opcodes\\opcodeactions\\program\\endinstruction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AED52D2F-B3BB-4C99-B0DE-7AF6ABB18013}|CPU.csproj|c:\\users\\nobem\\onedrive\\documents\\programming stuff\\c#\\cpu\\cpu\\scripts\\vcpu\\opcodes\\opcodeactions\\program\\inputinstruction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AED52D2F-B3BB-4C99-B0DE-7AF6ABB18013}|CPU.csproj|solutionrelative:scripts\\vcpu\\opcodes\\opcodeactions\\program\\inputinstruction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AED52D2F-B3BB-4C99-B0DE-7AF6ABB18013}|CPU.csproj|c:\\users\\nobem\\onedrive\\documents\\programming stuff\\c#\\cpu\\cpu\\scripts\\vcpu\\vcpu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AED52D2F-B3BB-4C99-B0DE-7AF6ABB18013}|CPU.csproj|solutionrelative:scripts\\vcpu\\vcpu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AED52D2F-B3BB-4C99-B0DE-7AF6ABB18013}|CPU.csproj|c:\\users\\nobem\\onedrive\\documents\\programming stuff\\c#\\cpu\\cpu\\scripts\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AED52D2F-B3BB-4C99-B0DE-7AF6ABB18013}|CPU.csproj|solutionrelative:scripts\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AED52D2F-B3BB-4C99-B0DE-7AF6ABB18013}|CPU.csproj|c:\\users\\nobem\\onedrive\\documents\\programming stuff\\c#\\cpu\\cpu\\scripts\\executables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AED52D2F-B3BB-4C99-B0DE-7AF6ABB18013}|CPU.csproj|solutionrelative:scripts\\executables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AED52D2F-B3BB-4C99-B0DE-7AF6ABB18013}|CPU.csproj|c:\\users\\nobem\\onedrive\\documents\\programming stuff\\c#\\cpu\\cpu\\scripts\\gameexecutable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AED52D2F-B3BB-4C99-B0DE-7AF6ABB18013}|CPU.csproj|solutionrelative:scripts\\gameexecutable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,17 +26,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\nobem\\OneDrive\\Documents\\Programming stuff\\C#\\CPU\\CPU\\Scripts\\Program.cs",
               "RelativeDocumentMoniker": "Scripts\\Program.cs",
               "ToolTip": "C:\\Users\\nobem\\OneDrive\\Documents\\Programming stuff\\C#\\CPU\\CPU\\Scripts\\Program.cs",
               "RelativeToolTip": "Scripts\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-06T13:59:25.516Z",
               "IsPinned": true,
@@ -48,13 +44,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "VCPU.cs",
               "DocumentMoniker": "C:\\Users\\nobem\\OneDrive\\Documents\\Programming stuff\\C#\\CPU\\CPU\\Scripts\\VCPU\\VCPU.cs",
               "RelativeDocumentMoniker": "Scripts\\VCPU\\VCPU.cs",
               "ToolTip": "C:\\Users\\nobem\\OneDrive\\Documents\\Programming stuff\\C#\\CPU\\CPU\\Scripts\\VCPU\\VCPU.cs",
               "RelativeToolTip": "Scripts\\VCPU\\VCPU.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAADMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-13T08:54:55.632Z",
               "IsPinned": true,
@@ -62,13 +58,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Programs.cs",
-              "DocumentMoniker": "C:\\Users\\nobem\\OneDrive\\Documents\\Programming stuff\\C#\\CPU\\CPU\\Scripts\\Programs.cs",
-              "RelativeDocumentMoniker": "Scripts\\Programs.cs",
-              "ToolTip": "C:\\Users\\nobem\\OneDrive\\Documents\\Programming stuff\\C#\\CPU\\CPU\\Scripts\\Programs.cs",
-              "RelativeToolTip": "Scripts\\Programs.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAAwEsAAAABAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Executables.cs",
+              "DocumentMoniker": "C:\\Users\\nobem\\OneDrive\\Documents\\Programming stuff\\C#\\CPU\\CPU\\Scripts\\Executables.cs",
+              "RelativeDocumentMoniker": "Scripts\\Executables.cs",
+              "ToolTip": "C:\\Users\\nobem\\OneDrive\\Documents\\Programming stuff\\C#\\CPU\\CPU\\Scripts\\Executables.cs",
+              "RelativeToolTip": "Scripts\\Executables.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAYAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-12T15:32:41.698Z",
               "IsPinned": true,
@@ -76,28 +72,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "EndInstruction.cs",
-              "DocumentMoniker": "C:\\Users\\nobem\\OneDrive\\Documents\\Programming stuff\\C#\\CPU\\CPU\\Scripts\\VCPU\\Opcodes\\OpcodeActions\\Program\\EndInstruction.cs",
-              "RelativeDocumentMoniker": "Scripts\\VCPU\\Opcodes\\OpcodeActions\\Program\\EndInstruction.cs",
-              "ToolTip": "C:\\Users\\nobem\\OneDrive\\Documents\\Programming stuff\\C#\\CPU\\CPU\\Scripts\\VCPU\\Opcodes\\OpcodeActions\\Program\\EndInstruction.cs",
-              "RelativeToolTip": "Scripts\\VCPU\\Opcodes\\OpcodeActions\\Program\\EndInstruction.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "GameExecutable.cs",
+              "DocumentMoniker": "C:\\Users\\nobem\\OneDrive\\Documents\\Programming stuff\\C#\\CPU\\CPU\\Scripts\\GameExecutable.cs",
+              "RelativeDocumentMoniker": "Scripts\\GameExecutable.cs",
+              "ToolTip": "C:\\Users\\nobem\\OneDrive\\Documents\\Programming stuff\\C#\\CPU\\CPU\\Scripts\\GameExecutable.cs",
+              "RelativeToolTip": "Scripts\\GameExecutable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T12:59:21.726Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "InputInstruction.cs",
-              "DocumentMoniker": "C:\\Users\\nobem\\OneDrive\\Documents\\Programming stuff\\C#\\CPU\\CPU\\Scripts\\VCPU\\Opcodes\\OpcodeActions\\Program\\InputInstruction.cs",
-              "RelativeDocumentMoniker": "Scripts\\VCPU\\Opcodes\\OpcodeActions\\Program\\InputInstruction.cs",
-              "ToolTip": "C:\\Users\\nobem\\OneDrive\\Documents\\Programming stuff\\C#\\CPU\\CPU\\Scripts\\VCPU\\Opcodes\\OpcodeActions\\Program\\InputInstruction.cs",
-              "RelativeToolTip": "Scripts\\VCPU\\Opcodes\\OpcodeActions\\Program\\InputInstruction.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T12:59:14.337Z",
+              "WhenOpened": "2026-05-21T08:11:42.37Z",
+              "IsPinned": true,
               "EditorCaption": ""
             }
           ]

@@ -22,7 +22,8 @@ namespace VirtualCPU
         /// <summary>
         /// Prints the value of a register or a block of memory to the console.
         /// The instruction format is as follows:
-        /// PRT SourceType(Register = 0, Memory = 1, Immediate value = 2) Source
+        /// PRT OutputType 
+        /// (Register = 0, Memory = 1, Immediate value = 2) Source
         /// </summary>
         PRT = 0x02, 
 
@@ -97,9 +98,14 @@ namespace VirtualCPU
         /// The instruction format is as follows:
         /// DEC RegisterIndex
         /// </summary>
-        DEC = 0x18
+        DEC = 0x18,
 
-
+        /// <summary>
+        /// Generates a random number using the system time as a seed and stores it in a register.
+        /// The instruction format is as follows:
+        /// RND RegisterIndex
+        /// </summary>
+        RND = 0x19
 
     }
 }

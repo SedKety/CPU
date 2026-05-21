@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VirtualCPU
 {
-    public static class Programs
+    public static class Executables
     {
         public static byte[] SampleProgram = new byte[]
         {
@@ -47,7 +47,7 @@ namespace VirtualCPU
         public static byte[] PrintSample = new byte[]
         {
             (byte)OpCodes.LOAD, (byte)Register.R0, 42, // Load the value 42 into R0
-            (byte)OpCodes.PRT, 0, (byte)Register.R0, // Print the value of R0
+            (byte)OpCodes.PRT, (byte)OutputType.Decimal, 0, (byte)Register.R0, // Print the value of R0
             (byte)OpCodes.END // End of program
         };
 
@@ -56,21 +56,31 @@ namespace VirtualCPU
         public static byte[] PrintStringSample = new byte[]
         {
             (byte)OpCodes.LOAD, 0, (byte)Register.R0,
-            (byte)OpCodes.PRT, 2,
+            (byte)OpCodes.PRT, (byte)OutputType.String, 2,
             (byte)'H', (byte)'e', (byte)'l', (byte)'l', (byte)'o', (byte)',', (byte)' ',
             (byte)'W', (byte)'o', (byte)'r', (byte)'l', (byte)'d', (byte)'!', 0
         };
 
-
-        public static byte[] SumInputSample = new byte[]
+        // This program will ask the user to input two numbers, then it will subtract the second number from the first number and print the result.
+        public static byte[] SubtractInputExample = new byte[]
         {
-            (byte)OpCodes.PRT, 0, (byte)Register.R0, // Print the value of R0 (initially 0)
-            (byte)OpCodes.PRT, 0, (byte)Register.R1, // Print the value of R1 (initially 0)
-            (byte)OpCodes.IPT, 1, (byte)Register.R0, // Input a value into R0
-            (byte)OpCodes.IPT, 0, (byte)Register.R1, // Input a value into R1
+            (byte)OpCodes.PRT, (byte)OutputType.Decimal, 0, (byte)Register.R0, // Print the value of R0 (initially 0)
+            (byte)OpCodes.PRT, (byte)OutputType.Decimal, 0, (byte)Register.R1, // Print the value of R1 (initially 0)
+            (byte)OpCodes.IPT, 0, (byte)Register.R0, // Input a BYTE into R0
+            (byte)OpCodes.IPT, 1, (byte)Register.R1, // Input a CHAR into R1
             (byte)OpCodes.SUB, (byte)Register.R0, (byte)Register.R1, // Subtract R1 from R0, store in R0
-            (byte)OpCodes.PRT, 0, (byte)Register.R0, // Print the result in R0
+            (byte)OpCodes.PRT, (byte)OutputType.Decimal, 0, (byte)Register.R0, // Print the result in R0
             (byte)OpCodes.END // End of program
             };
+
+        /// <summary>
+        /// Outputs a string to the console, then prompts the user to input a string and outputs that string back to the console.
+        /// </summary>
+        public static byte[] OutPutInputString = new byte[]
+        {
+            (byte)OpCodes.IPT, 2, 0, // Input a string into memory starting at address 0
+            (byte)OpCodes.PRT, (byte)OutputType.String, 1, 0, // Print the string from memory starting at address 0
+            (byte)OpCodes.END // End of program
+        };
     }
 }
