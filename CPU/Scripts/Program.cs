@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Linq;
+using System.Reflection;
 
 namespace VirtualCPU
 {
@@ -6,7 +8,7 @@ namespace VirtualCPU
     {
         static void Main(string[] args)
         {
-            var program = GameExecutable.GuessingGame;
+            var program = Executables.OnlyBytes;
 
             //Dynamically load all opcode instructions from the assembly
             OpcodeInstruction[] instructions = Assembly.GetAssembly(typeof(Program)).GetTypes()

@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Collections.Generic;
 namespace VirtualCPU
 {
     public enum Register : byte

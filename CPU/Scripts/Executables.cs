@@ -82,5 +82,11 @@ namespace VirtualCPU
             (byte)OpCodes.PRT, (byte)OutputType.String, 1, 0, // Print the string from memory starting at address 0
             (byte)OpCodes.END // End of program
         };
+
+
+        public static byte[] OnlyBytes = new byte[] 
+        {
+            3, 2, 0, 2, 0, 1, 0, 0
+        };
     }
 }

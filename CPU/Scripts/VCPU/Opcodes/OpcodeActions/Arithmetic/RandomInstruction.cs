@@ -1,8 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace VirtualCPU.Opcodes
 {
@@ -17,8 +13,11 @@ namespace VirtualCPU.Opcodes
         public string Name => "RND";
         public bool Accept(byte opcode) => opcode == (byte)OpCodes.RND;
 
+        private Random random;
         public void Act(VCPU vCpu, byte opcode, Action<string> crashHandle)
         {
+            random = random == null ? new Random() : random;
+
             var pc = vCpu.ProgramCounter;
             var registers = vCpu.Registers;
             var destinationRegister = vCpu.Program[pc + 1];
@@ -26,7 +25,7 @@ namespace VirtualCPU.Opcodes
             var max = vCpu.Program[pc + 3];
 
             // Uses the system time to emulate how you'd do it on the original masm64 setup.
-            byte randomValue = (byte)Random.Shared.Next(min, max + 1);
+            byte randomValue = (byte)random.Next(min, max + 1);
 
             vCpu.Log($"Generating random value between {min} and {max} for R{destinationRegister} Value = {randomValue}");
 
